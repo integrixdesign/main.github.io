@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Integrix Engineering Services</title>
-  <meta name="description" content="Integrix Design Services — Clear, accurate drawings built for manufacturing." />
+  <title>Integrix Design Services</title>
+  <meta name="description" content="Integrix Design Services — clear, accurate drawings built for manufacturing." />
 
   <style>
     :root{
@@ -16,7 +16,7 @@
 
       --maxw: 1100px;
 
-      /* Fluid type & spacing for “smart fitting” on resize */
+      /* Fluid type & spacing */
       --step--1: clamp(0.90rem, 0.85rem + 0.25vw, 1.00rem);
       --step-0:  clamp(1.00rem, 0.95rem + 0.35vw, 1.15rem);
       --step-1:  clamp(1.20rem, 1.05rem + 0.75vw, 1.55rem);
@@ -132,7 +132,7 @@
       header[data-open="true"] nav{ display: flex; }
     }
 
-    /* Hero title */
+    /* Hero */
     .hero{
       padding: var(--space-4) 0 var(--space-3);
     }
@@ -216,7 +216,7 @@
       object-fit: cover;
     }
 
-    /* Services grid */
+    /* Services / cards */
     .service-grid{
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -293,25 +293,12 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!--
-    FILE PLACEMENT (recommended)
-    Put these files next to this index.html (same folder):
-      - Logo.svg
-      - (optional) picture1.jpg
-      - (optional) picture2.jpg
-
-    This page already uses your attached logo:
-      <img src="Logo.svg" ...>
-
-    Replace the placeholder media blocks below with your images when ready.
-  -->
-
   <header id="top" data-open="false">
     <div class="container">
       <div class="header-inner">
-        <div class="brand" aria-label="Integrix Drafting Services">
-          <img src="Logo.svg" alt="Integrix Drafting Services logo" />
-        </div>
+        <a class="brand" href="#top" aria-label="Go to top">
+          <img src="Logo.svg" alt="Integrix Design Services logo" />
+        </a>
 
         <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="siteNav">
           Menu
@@ -320,7 +307,8 @@
         <nav id="siteNav" aria-label="Primary navigation">
           <a href="#company">Company</a>
           <a href="#services">Services</a>
-          <a href="#contact">Contact Us</a>
+          <a href="#why-us">Why Us</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </div>
@@ -329,11 +317,8 @@
   <main id="main">
     <div class="container">
       <div class="hero">
-        <h1>Integrix Drafting Services</h1>
-        <p class="sub">
-          <!-- EDIT THIS: short positioning statement -->
-          Drafting support for design, drafting, and documentation—focused on practical, buildable solutions.
-        </p>
+        <h1>Integrix Design Services</h1>
+        <p class="sub">Cost efficiency through process, not shortcuts.</p>
         <div class="rule" aria-hidden="true"></div>
       </div>
     </div>
@@ -344,32 +329,22 @@
 
         <div class="two-col">
           <div class="prose">
-            <!-- EDIT THIS: company introduction -->
             <p>
-              Integrix Design Services provides engineering and drafting support for product development,
-              fabrication, and documentation. We work with individuals and organizations to convert concepts into
-              manufacturable designs and clear technical deliverables.
+              Integrix Design Services provides drafting support for product development,
+              fabrication, and documentation. We help individuals and organizations convert
+              concepts into manufacturable designs through clear models, drawings, and structured
+              technical deliverables.
             </p>
 
             <p>
-              <!-- EDIT THIS: highlight differentiators -->
-              Typical deliverables include 2D drawings, 3D models, assemblies, design reviews, and production-ready documentation.
+              Typical deliverables include 2D drawings, 3D models, assemblies, design reviews, and
+              production-ready documentation.
             </p>
-
-            <!-- OPTIONAL: edit or remove -->
-            <ul>
-              <li>Responsive communication and structured project workflows</li>
-              <li>Clear revision control and organized deliverable packages</li>
-              <li>Design intent documented for fabrication and procurement</li>
-            </ul>
           </div>
 
-          <!-- Picture 1 block (replace with your own image) -->
+          <!-- Replace placeholder with an actual image when ready -->
           <div class="media" aria-label="Company image">
-            <!--
-              Replace the placeholder with a real image like:
-              <img src="picture1.jpg" alt="Example engineering project" />
-            -->
+            <!-- <img src="picture1.jpg" alt="Example drafting package and manufacturing documentation" /> -->
             <div class="ph">
               <div>
                 <strong>Picture 1</strong><br />
@@ -386,48 +361,74 @@
       <div class="container">
         <h2>Services</h2>
 
+        <div class="service-grid" role="list">
+          <div class="card" role="listitem">
+            <h3>2D Drawings</h3>
+            <p>Dimensioned fabrication and assembly drawings with clear notes and revision control.</p>
+          </div>
+
+          <div class="card" role="listitem">
+            <h3>3D Models</h3>
+            <p>Parametric part and assembly models for fit checks, iterations, and manufacturing handoff.</p>
+          </div>
+
+          <div class="card" role="listitem">
+            <h3>Assemblies &amp; BOMs</h3>
+            <p>Structured assemblies with BOMs and deliverable packages organized for procurement.</p>
+          </div>
+
+          <div class="card" role="listitem">
+            <h3>Design Reviews</h3>
+            <p>Manufacturability-focused reviews to reduce rework and clarify design intent.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" aria-label="Why Us">
+      <div class="container">
+        <h2>Why Us</h2>
+
         <div class="two-col">
           <div>
             <div class="service-grid" role="list">
-              <!-- EDIT THESE: services cards -->
               <div class="card" role="listitem">
-                <h3>Design Services</h3>
+                <h3>Designed for repeatability</h3>
                 <p>
-                  2D technical drawings, dimensioning, GD&amp;T (as required), drawing packages, and revision management.
+                  We build standardized and automated design frameworks around each client’s product line,
+                  enabling faster updates, revisions, and future variants without restarting from scratch.
                 </p>
               </div>
 
               <div class="card" role="listitem">
-                <h3>3D Modeling &amp; Assemblies</h3>
+                <h3>Lower long-term project cost</h3>
                 <p>
-                  Parametric part modeling, assembly layouts, interference checks, and export formats for fabrication.
+                  Automation and standardization are developed internally and absorbed by us—clients benefit
+                  from reduced engineering hours on future work without additional setup fees.
                 </p>
               </div>
 
               <div class="card" role="listitem">
-                <h3>Design Support</h3>
+                <h3>Lean, efficient operations</h3>
                 <p>
-                  Concept refinement, DFM considerations, basic calculations, and documentation to support build readiness.
+                  With distributed designers and minimal overhead, we deliver competitive pricing while
+                  maintaining disciplined workflows and documentation standards.
                 </p>
               </div>
 
               <div class="card" role="listitem">
-                <h3>Example Work</h3>
+                <h3>Flexible, open technical stack</h3>
                 <p>
-                  <!-- EDIT THIS: example work list -->
-                  Example work 1<br />
-                  Example work 2
+                  Our workflows use Python-based, open-source CAD tools that we customize in-house,
+                  allowing rapid iteration and avoiding vendor lock-in.
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Picture 2 block (replace with your own image) -->
+          <!-- Replace placeholder with an actual image when ready -->
           <div class="media" aria-label="Services image">
-            <!--
-              Replace the placeholder with a real image like:
-              <img src="picture2.jpg" alt="Drafting and modeling example" />
-            -->
+            <!-- <img src="picture2.jpg" alt="Drafting and modeling example" /> -->
             <div class="ph">
               <div>
                 <strong>Picture 2</strong><br />
@@ -446,12 +447,7 @@
 
         <div class="contact-box">
           <div class="label">Email</div>
-          <!-- EDIT THIS: contact email -->
           <a href="mailto:IntegrixDesignServices@outlook.com">IntegrixDesignServices@outlook.com</a>
-
-          <!-- OPTIONAL: add phone / location -->
-          <!-- <div class="label" style="margin-top: 0.8rem;">Phone</div>
-          <div style="font-weight:600;">(000) 000-0000</div> -->
         </div>
       </div>
     </section>
@@ -459,20 +455,14 @@
     <footer>
       <div class="container">
         <div class="footer-inner">
-          <div>
-            <!-- EDIT THIS: copyright -->
-            © <span id="year"></span> Integrix Design Services. All rights reserved.
-          </div>
-          <div>
-            <a href="#top">Back to top</a>
-          </div>
+          <div>© <span id="year"></span> Integrix Design Services. All rights reserved.</div>
+          <div><a href="#top">Back to top</a></div>
         </div>
       </div>
     </footer>
   </main>
 
   <script>
-    // Mobile menu toggle (minimal JS)
     (function () {
       const header = document.querySelector("header");
       const btn = document.getElementById("menuBtn");
@@ -488,17 +478,14 @@
         setOpen(!isOpen);
       });
 
-      // Close menu when a nav link is clicked (mobile)
       nav.addEventListener("click", function (e) {
         if (e.target && e.target.tagName === "A") setOpen(false);
       });
 
-      // Close menu on resize back to desktop
       window.addEventListener("resize", function () {
         if (window.innerWidth > 760) setOpen(false);
       });
 
-      // Footer year
       document.getElementById("year").textContent = new Date().getFullYear();
     })();
   </script>
