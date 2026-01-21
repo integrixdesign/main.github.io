@@ -216,7 +216,7 @@
       object-fit: cover;
     }
 
-    /* Services / cards */
+    /* Cards */
     .service-grid{
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -240,6 +240,77 @@
       margin: 0.4rem 0 0;
       color: var(--muted);
       font-size: var(--step--1);
+    }
+
+    /* General Process (flow) */
+    .process-wrap{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #1f1f1f;
+      box-shadow: var(--shadow);
+      padding: var(--space-3);
+    }
+
+    .process-track{
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+      padding: 6px 4px;
+    }
+
+    .process-track::-webkit-scrollbar{
+      height: 10px;
+    }
+    .process-track::-webkit-scrollbar-thumb{
+      background: rgba(255,255,255,0.18);
+      border-radius: 999px;
+    }
+    .process-track::-webkit-scrollbar-track{
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+    }
+
+    .process-step{
+      flex: 0 0 auto;
+      min-width: 180px;
+      max-width: 220px;
+      padding: 18px 16px;
+      border-radius: 14px;
+      background: #0f6b7a;
+      border: 2px solid rgba(255,255,255,0.92);
+      color: #ffffff;
+      text-align: center;
+      font-weight: 650;
+      line-height: 1.2;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+    }
+
+    .process-arrow{
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      position: relative;
+      opacity: 0.9;
+    }
+
+    .process-arrow::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 18px solid #bdbdbd;
+    }
+
+    @media (max-width: 760px){
+      .process-wrap{ padding: var(--space-2); }
+      .process-step{ min-width: 165px; padding: 16px 14px; }
     }
 
     /* Contact */
@@ -306,7 +377,7 @@
 
         <nav id="siteNav" aria-label="Primary navigation">
           <a href="#company">Company</a>
-          <a href="#services">Services</a>
+          <a href="#process">General Process</a>
           <a href="#why-us">Why Us</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -337,12 +408,11 @@
             </p>
 
             <p>
-              Typical deliverables include 2D drawings, 3D models, assemblies, design reviews, and
-              production-ready documentation.
+              Typical deliverables include 3D models, General Arrangement (GA) drawing, and
+              fabrication drawing.
             </p>
           </div>
 
-          <!-- Replace placeholder with an actual image when ready -->
           <div class="media" aria-label="Company image">
             <!-- <img src="picture1.jpg" alt="Example drafting package and manufacturing documentation" /> -->
             <div class="ph">
@@ -357,29 +427,31 @@
       </div>
     </section>
 
-    <section id="services" aria-label="Services">
+    <section id="process" aria-label="General Process">
       <div class="container">
-        <h2>Services</h2>
+        <h2>General Process</h2>
 
-        <div class="service-grid" role="list">
-          <div class="card" role="listitem">
-            <h3>2D Drawings</h3>
-            <p>Dimensioned fabrication and assembly drawings with clear notes and revision control.</p>
-          </div>
+        <div class="process-wrap" aria-label="Typical drafting workflow">
+          <div class="process-track" role="list">
+            <div class="process-step" role="listitem">Kick off meeting</div>
+            <div class="process-arrow" aria-hidden="true"></div>
 
-          <div class="card" role="listitem">
-            <h3>3D Models</h3>
-            <p>Parametric part and assembly models for fit checks, iterations, and manufacturing handoff.</p>
-          </div>
+            <div class="process-step" role="listitem">GA drawing</div>
+            <div class="process-arrow" aria-hidden="true"></div>
 
-          <div class="card" role="listitem">
-            <h3>Assemblies &amp; BOMs</h3>
-            <p>Structured assemblies with BOMs and deliverable packages organized for procurement.</p>
-          </div>
+            <div class="process-step" role="listitem">Review/comments on GA drawing</div>
+            <div class="process-arrow" aria-hidden="true"></div>
 
-          <div class="card" role="listitem">
-            <h3>Design Reviews</h3>
-            <p>Manufacturability-focused reviews to reduce rework and clarify design intent.</p>
+            <div class="process-step" role="listitem">Fabrication drawing</div>
+            <div class="process-arrow" aria-hidden="true"></div>
+
+            <div class="process-step" role="listitem">Review/comments on Fab drawing</div>
+            <div class="process-arrow" aria-hidden="true"></div>
+
+            <div class="process-step" role="listitem">Revised fab drawing</div>
+            <div class="process-arrow" aria-hidden="true"></div>
+
+            <div class="process-step" role="listitem">Final submission</div>
           </div>
         </div>
       </div>
@@ -426,7 +498,6 @@
             </div>
           </div>
 
-          <!-- Replace placeholder with an actual image when ready -->
           <div class="media" aria-label="Services image">
             <!-- <img src="picture2.jpg" alt="Drafting and modeling example" /> -->
             <div class="ph">
