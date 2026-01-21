@@ -187,11 +187,6 @@
       margin: 0 0 var(--space-2);
       max-width: 75ch;
     }
-    .prose ul{
-      margin: 0 0 var(--space-2);
-      padding-left: 1.2rem;
-    }
-    .prose li{ margin: 0.25rem 0; }
 
     /* Media blocks */
     .media{
@@ -242,75 +237,71 @@
       font-size: var(--step--1);
     }
 
-    /* General Process (flow) */
+    /* ===== General Process (Black & White + auto-resize) =====
+       - Desktop: one row, boxes flex to fill available width (no horizontal scroll)
+       - Tablet/Phone: wraps into multiple rows automatically
+       - Arrows are SVG and scale with the layout
+    */
     .process-wrap{
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: #1f1f1f;
+      background: #ffffff;
       box-shadow: var(--shadow);
       padding: var(--space-3);
     }
 
     .process-track{
       display: flex;
-      align-items: center;
-      gap: 14px;
-      overflow-x: auto;
-      overscroll-behavior-x: contain;
-      -webkit-overflow-scrolling: touch;
-      padding: 6px 4px;
+      align-items: stretch;
+      gap: clamp(0.45rem, 0.35rem + 0.7vw, 0.9rem);
+      flex-wrap: wrap;              /* key: wraps on smaller widths */
     }
 
-    .process-track::-webkit-scrollbar{
-      height: 10px;
-    }
-    .process-track::-webkit-scrollbar-thumb{
-      background: rgba(255,255,255,0.18);
-      border-radius: 999px;
-    }
-    .process-track::-webkit-scrollbar-track{
-      background: rgba(255,255,255,0.06);
-      border-radius: 999px;
+    .process-item{
+      flex: 1 1 170px;              /* key: boxes resize automatically */
+      min-width: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .process-step{
-      flex: 0 0 auto;
-      min-width: 180px;
-      max-width: 220px;
-      padding: 18px 16px;
+      width: 100%;
+      height: 100%;
+      padding: clamp(0.85rem, 0.7rem + 0.7vw, 1.1rem);
       border-radius: 14px;
-      background: #0f6b7a;
-      border: 2px solid rgba(255,255,255,0.92);
-      color: #ffffff;
+      background: #ffffff;
+      border: 2px solid #111111;
+      color: #111111;
       text-align: center;
-      font-weight: 650;
+      font-weight: 700;
       line-height: 1.2;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+      display: grid;
+      place-items: center;
+      font-size: clamp(0.95rem, 0.85rem + 0.35vw, 1.05rem);
     }
 
     .process-arrow{
       flex: 0 0 auto;
-      width: 28px;
-      height: 28px;
-      position: relative;
+      display: grid;
+      place-items: center;
+      width: clamp(18px, 14px + 1vw, 28px);
       opacity: 0.9;
     }
 
-    .process-arrow::before{
-      content: "";
-      position: absolute;
-      inset: 0;
-      margin: auto;
-      width: 0;
-      height: 0;
-      border-top: 12px solid transparent;
-      border-bottom: 12px solid transparent;
-      border-left: 18px solid #bdbdbd;
+    .process-arrow svg{
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
-    @media (max-width: 760px){
-      .process-wrap{ padding: var(--space-2); }
-      .process-step{ min-width: 165px; padding: 16px 14px; }
+    /* On wrapped rows, hide arrows that would end a line poorly:
+       We keep arrows visible generally, but remove arrows at very small widths. */
+    @media (max-width: 520px){
+      .process-arrow{ display: none; }
+      .process-track{ gap: var(--space-2); }
+      .process-item{ flex-basis: 100%; min-width: 0; }
     }
 
     /* Contact */
@@ -433,25 +424,75 @@
 
         <div class="process-wrap" aria-label="Typical drafting workflow">
           <div class="process-track" role="list">
-            <div class="process-step" role="listitem">Kick off meeting</div>
-            <div class="process-arrow" aria-hidden="true"></div>
+            <div class="process-item" role="listitem">
+              <div class="process-step">Kick off meeting</div>
+            </div>
 
-            <div class="process-step" role="listitem">GA drawing</div>
-            <div class="process-arrow" aria-hidden="true"></div>
+            <div class="process-arrow" aria-hidden="true">
+              <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M8 22H28" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+                <path d="M24 12L36 22L24 32" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
 
-            <div class="process-step" role="listitem">Review/comments on GA drawing</div>
-            <div class="process-arrow" aria-hidden="true"></div>
+            <div class="process-item" role="listitem">
+              <div class="process-step">GA drawing</div>
+            </div>
 
-            <div class="process-step" role="listitem">Fabrication drawing</div>
-            <div class="process-arrow" aria-hidden="true"></div>
+            <div class="process-arrow" aria-hidden="true">
+              <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M8 22H28" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+                <path d="M24 12L36 22L24 32" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
 
-            <div class="process-step" role="listitem">Review/comments on Fab drawing</div>
-            <div class="process-arrow" aria-hidden="true"></div>
+            <div class="process-item" role="listitem">
+              <div class="process-step">Review/comments on GA drawing</div>
+            </div>
 
-            <div class="process-step" role="listitem">Revised fab drawing</div>
-            <div class="process-arrow" aria-hidden="true"></div>
+            <div class="process-arrow" aria-hidden="true">
+              <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M8 22H28" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+                <path d="M24 12L36 22L24 32" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
 
-            <div class="process-step" role="listitem">Final submission</div>
+            <div class="process-item" role="listitem">
+              <div class="process-step">Fabrication drawing</div>
+            </div>
+
+            <div class="process-arrow" aria-hidden="true">
+              <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M8 22H28" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+                <path d="M24 12L36 22L24 32" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="process-item" role="listitem">
+              <div class="process-step">Review/comments on Fab drawing</div>
+            </div>
+
+            <div class="process-arrow" aria-hidden="true">
+              <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M8 22H28" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+                <path d="M24 12L36 22L24 32" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="process-item" role="listitem">
+              <div class="process-step">Revised fab drawing</div>
+            </div>
+
+            <div class="process-arrow" aria-hidden="true">
+              <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path d="M8 22H28" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+                <path d="M24 12L36 22L24 32" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="process-item" role="listitem">
+              <div class="process-step">Final submission</div>
+            </div>
           </div>
         </div>
       </div>
