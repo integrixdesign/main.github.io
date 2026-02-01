@@ -35,7 +35,7 @@
     html{ scroll-behavior: smooth; }
     body{
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       background: var(--bg);
       color: var(--text);
       font-size: var(--step-0);
@@ -53,10 +53,10 @@
     header{
       position: sticky;
       top: 0;
+      z-index: 10;
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
-      z-index: 10;
     }
 
     .header-inner{
@@ -66,10 +66,15 @@
       padding: var(--space-2) 0;
     }
 
+    nav{
+      display: flex;
+      gap: 1.2rem;
+      font-size: var(--step--1);
+    }
+
     nav a{
       padding: 0.55rem 0.75rem;
       border-radius: 10px;
-      font-size: var(--step--1);
     }
 
     nav a:hover{
@@ -82,9 +87,26 @@
       text-align: center;
     }
 
+    .hero h1{
+      margin: 0;
+      font-size: var(--step-3);
+      line-height: 1.15;
+    }
+
+    .hero .sub{
+      margin-top: var(--space-2);
+      color: var(--muted);
+    }
+
     section{
       padding: var(--space-4) 0;
       border-top: 1px solid var(--line);
+    }
+
+    section h2{
+      text-align: center;
+      font-size: var(--step-2);
+      margin-bottom: var(--space-3);
     }
 
     .service-grid{
@@ -110,7 +132,7 @@
     .quote-card, .help-card{
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: #fff;
+      background: #ffffff;
       padding: var(--space-3);
       box-shadow: var(--shadow);
     }
@@ -125,12 +147,14 @@
       background: #111;
       color: #fff;
       font-weight: 750;
+      cursor: pointer;
     }
 
     .btn-secondary{
+      border: 1px solid var(--line);
       background: #fff;
       color: #111;
-      border: 1px solid var(--line);
+      font-weight: 700;
     }
 
     footer{
@@ -146,11 +170,11 @@
 
 <header>
   <div class="container header-inner">
-    <img src="Logo.svg" alt="Integrix logo" height="48" />
+    <img src="Logo.svg" alt="Integrix Design Services logo" height="48" />
     <nav>
       <a href="#company">Company</a>
       <a href="#why-us">Why Us</a>
-      <a href="#process">Process</a>
+      <a href="#process">General Process</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -159,8 +183,10 @@
 <main>
 
 <section class="hero">
-  <h1>Integrix Design Services</h1>
-  <p>Efficiency through integrated workflows.</p>
+  <div class="container">
+    <h1>Integrix Design Services</h1>
+    <p class="sub">Efficiency through integrated workflows.</p>
+  </div>
 </section>
 
 <section id="contact">
@@ -172,6 +198,7 @@
         <h3>Submit your project for review</h3>
         <p>
           Use our RFQ form to provide drawings, photos, and key requirements.
+          This enables an efficient technical review and a clear, accurate quotation.
           Typical response time is within one business day.
         </p>
 
@@ -183,7 +210,7 @@
           </a>
 
           <a class="btn btn-secondary"
-             href="mailto:IntegrixDesignServices@outlook.com?subject=Quote%20Request">
+             href="mailto:IntegrixDesignServices@outlook.com?subject=Quote%20Request%20-%20Integrix%20Design%20Services">
             Email Instead
           </a>
         </div>
@@ -193,9 +220,9 @@
         <h4>Information that helps us quote accurately</h4>
         <ul>
           <li>Reference drawings</li>
-          <li>Sketches</li>
-          <li>Photos</li>
-          <li>Target timeline</li>
+          <li>Preliminary sketches</li>
+          <li>Photographs</li>
+          <li>Target delivery timeline</li>
         </ul>
       </div>
     </div>
@@ -204,7 +231,7 @@
 
 <footer>
   <div class="container">
-    © <span id="year"></span> Integrix Design Services
+    © <span id="year"></span> Integrix Design Services. All rights reserved.
   </div>
 </footer>
 
